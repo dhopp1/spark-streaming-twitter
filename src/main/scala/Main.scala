@@ -1,4 +1,4 @@
-package twitter_app
+package twitterstreaming
 
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.StreamingContext
@@ -10,8 +10,8 @@ import org.apache.spark.streaming.twitter.TwitterUtils
 
 // to run with sbt cd in directory: sbt "run $TWITTER_CONSUMER_KEY $TWITTER_CONSUMER_SECRET $TWITTER_ACCESS_TOKEN $TWITTER_ACCESS_TOKEN_SECRET keyword"
 // to run after sbt package cd in directory: spark-submit --class twitterstreaming target/scala-2.11/spark-streaming-twitter_2.11-1.0.jar $TWITTER_CONSUMER_KEY $TWITTER_CONSUMER_SECRET $TWITTER_ACCESS_TOKEN $TWITTER_ACCESS_TOKEN_SECRET keyword
-object twitterstreaming {
-  def main(args: Array[String]) {
+object twitterstreaming extends App {
+  /*def main(args: Array[String]) {*/
     if (args.length < 4) {
       System.err.println("Usage: TwitterData <ConsumerKey><ConsumerSecret><accessToken><accessTokenSecret>" +
         "[<filters>]")
@@ -45,5 +45,5 @@ object twitterstreaming {
     //tweets.saveAsTextFiles("/Users/danielhopp/dhopp1/spark-streaming-twitter/tweets", "json")
     ssc.start()
     ssc.awaitTermination()
-  }
+  /*}*/
 }
